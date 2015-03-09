@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker build -t "flecno/logstash-indexer:1.4.2" `dirname "$0"`
