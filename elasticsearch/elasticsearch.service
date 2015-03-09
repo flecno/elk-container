@@ -1,0 +1,14 @@
+[Unit]
+Description=Simple elasticsearch systemd unit which starts a fluid docker container
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStartPre=-/usr/bin/docker kill elasticsearch
+ExecStartPre=-/usr/bin/docker rm elasticsearch
+ExecStart=/usr/bin/docker run --rm --name elasticsearch --volumes-from=elasticsearch-data -p 9200:9200 -p 9300:9300 flecno/elasticsearch:1.4.4
+ExecStop=/usr/bin/docker stop elasticsearch
+
+[X-Fleet]
+X-Conflicts=elasticsearch.service
+
