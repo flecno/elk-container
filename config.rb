@@ -1,4 +1,4 @@
-$new_discovery_url='https://discovery.etcd.io/new'
+#$new_discovery_url='https://discovery.etcd.io/new'
 
 # To automatically replace the discovery token on 'vagrant up', uncomment
 # the lines below:
@@ -25,15 +25,15 @@ $new_discovery_url='https://discovery.etcd.io/new'
 # after the equals sign..
 
 # Size of the CoreOS cluster created by Vagrant
-#$num_instances=1
+$num_instances=1
 
 # Change basename of the VM
 # The default value is "core", which results in VMs named starting with
 # "core-01" through to "core-${num_instances}".
-#$instance_name_prefix="core"
+$instance_name_prefix="core-elk"
 
 # Official CoreOS channel from which updates should be downloaded
-#$update_channel='alpha'
+$update_channel='stable'
 
 # Log the serial consoles of CoreOS VMs to log/
 # Enable by setting value to true, disable with false
@@ -46,7 +46,7 @@ $new_discovery_url='https://discovery.etcd.io/new'
 # If 2375 is used, Vagrant will auto-increment (e.g. in the case of $num_instances > 1)
 # You can then use the docker tool locally by setting the following env var:
 #   export DOCKER_HOST='tcp://127.0.0.1:2375'
-#$expose_docker_tcp=2375
+$expose_docker_tcp=2375
 
 # Enable NFS sharing of your home directory ($HOME) to CoreOS
 # It will be mounted at the same path in the VM as on the host.
@@ -54,9 +54,9 @@ $new_discovery_url='https://discovery.etcd.io/new'
 #$share_home=false
 
 # Customize VMs
-#$vm_gui = false
-#$vm_memory = 1024
-#$vm_cpus = 1
+$vm_gui = false
+$vm_memory = 4096
+$vm_cpus = 2
 
 # Share additional folders to the CoreOS VMs
 # For example,
